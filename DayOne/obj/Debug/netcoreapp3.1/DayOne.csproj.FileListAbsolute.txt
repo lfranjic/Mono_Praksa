@@ -1,0 +1,14 @@
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.exe
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.deps.json
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.runtimeconfig.json
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.runtimeconfig.dev.json
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.dll
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.pdb
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.csproj.AssemblyReference.cache
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.AssemblyInfoInputs.cache
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.AssemblyInfo.cs
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.csproj.CoreCompileInputs.cache
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.dll
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.pdb
+C:\Users\student\source\repos\Praksa2023-g01\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.genruntimeconfig.cache
