@@ -51,7 +51,7 @@ namespace Book.WebAPI.Controllers
                 books.Add(newBook);
                 return Request.CreateResponse(HttpStatusCode.OK, "Added!");
             }
-            else return Request.CreateResponse(HttpStatusCode.BadRequest, "Porduct with the same id exists!");
+            else return Request.CreateResponse(HttpStatusCode.BadRequest, "Book with the same id exists!");
         }
 
         [HttpPut]
