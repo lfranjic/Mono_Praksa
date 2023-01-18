@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Data.SqlClient;
 
-namespace Book.WebAPI.Configuration
+namespace DayTwo.Configuration
 {
     public static class BookWebAPIConfig
     {

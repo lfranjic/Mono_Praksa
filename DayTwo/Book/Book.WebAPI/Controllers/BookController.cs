@@ -19,7 +19,6 @@ namespace Book.WebAPI.Controllers
         };
 
         //Get api controller
-        [HttpGet]
         public HttpResponseMessage GetBooks()
         {
             if (books == null)
