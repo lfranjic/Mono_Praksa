@@ -1,67 +1,72 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
+using Book.WebAPI.Models;
+using System.Data.SqlClient;
+
 
 namespace Book.WebAPI.Controllers
 {
-
     public class BookController : ApiController
     {
         public static List<Book> books = new List<Book>
         {
-            new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy", 1),
-            new Book("Crime and Punishment", "Fjodor Dostoevsky", "Psychological", 2),
-            new Book("Harry Potter", "J.K. Rowling", "Fantasy", 3)
+            /*
+            new Book(4, "The Lord of the Rings", 750),
+            new Book(5, "Crime and Punishment", 500),
+            new Book(6, "The Hobbit", 240)
+            */
         };
 
-        //Get api controller
-        public HttpResponseMessage GetBooks()
-        {
-            if (books == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, books);
-            }
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
+        SqlConnection connection = new SqlConnection("Data Source = DESKTOP - LHBF9V2\\SQLEXPRESS; Initial Catalog = Praksa; Integrated Security = True");
 
-        // GET api/<controller>/5
         [HttpGet]
-        public HttpResponseMessage GetBooksById(int id)
+        // GET: api/Values
+        public HttpResponseMessage FindBookById(int id)
         {
-            var foundBook = books.Find(books => books.Id == id);
-            if (foundBook == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, foundBook);
-            }
-            return Request.CreateResponse(HttpStatusCode.OK, id);
+            var foundBook = books.Find(product => product.Id == id);
+            if (foundBook != null) return Request.CreateResponse(HttpStatusCode.OK, foundBook);
+            else return Request.CreateResponse(HttpStatusCode.NotFound, "No such product!");
         }
 
-        // POST api/<controller>
+        [HttpGet]
+        // GET: api/Values/5
+        public HttpResponseMessage AllBooks()
+        {
+            if (books != null)
+                return Request.CreateResponse(HttpStatusCode.OK, books);
+            else return Request.CreateResponse(HttpStatusCode.NotFound, "Empty!");
+        }
+
+
+        [HttpPost]
         // POST: api/Values
-        public HttpResponseMessage saveBook([FromBody] Book newBook)
+        public HttpResponseMessage SaveBook([FromBody] Book newBook)
         {
 
-            if (!books.Exists(Book => Book.Id == newBook.Id))
+            if (!books.Exists(product => product.Id == newBook.Id))
             {
                 books.Add(newBook);
                 return Request.CreateResponse(HttpStatusCode.OK, "Added!");
             }
-            else return Request.CreateResponse(HttpStatusCode.BadRequest, "Book with the same id exists!");
+            else return Request.CreateResponse(HttpStatusCode.BadRequest, "Porduct with the same id exists!");
         }
+
 
         [HttpPut]
         // PUT: api/Values/5
-        public HttpResponseMessage changeGenre([FromUri] int id, [FromUri] string value)
+        public HttpResponseMessage ChangePages([FromUri] int id, [FromUri] int value)
         {
-            var foundBook = books.Find(Book => Book.Id == id);
-            foundBook.Genre = value;
+            var foundBook = books.Find(books => books.Id == id);
+            foundBook.Pages = value;
             if (foundBook != null)
             {
-                if (foundBook.Genre == value) return Request.CreateResponse(HttpStatusCode.OK, "Changed!");
+                if (foundBook.Pages == value) return Request.CreateResponse(HttpStatusCode.OK, "Changed!");
                 else return Request.CreateResponse(HttpStatusCode.NotModified, "Error!");
             }
             else return Request.CreateResponse(HttpStatusCode.NotFound, "Not found!");
@@ -69,11 +74,11 @@ namespace Book.WebAPI.Controllers
 
         [HttpDelete]
         // DELETE: api/Values/5
-        public HttpResponseMessage removeBook([FromUri] int id)
+        public HttpResponseMessage RemoveBook([FromUri] int id)
         {
-            int numberOfbooks = books.Count;
-            books.Remove(books.Find(Book => Book.Id == id));
-            if (books.Count == numberOfbooks - 1) return Request.CreateResponse(HttpStatusCode.OK, "Deleted!");
+            int numberOfBooks = books.Count;
+            books.Remove(books.Find(books => books.Id == id));
+            if (books.Count == numberOfBooks - 1) return Request.CreateResponse(HttpStatusCode.OK, "Deleted!");
             else return Request.CreateResponse(HttpStatusCode.NotModified, "Error!"); ;
         }
     }
