@@ -17,6 +17,11 @@ namespace Book.WebAPI.Controllers
     {
         public static List<Author> authors = new List<Author>
         {
+            /*
+            new Book(4, "The Lord of the Rings", 750),
+            new Book(5, "Crime and Punishment", 500),
+            new Book(6, "The Hobbit", 240)
+            */
         };
 
         string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
@@ -40,8 +45,8 @@ namespace Book.WebAPI.Controllers
                         {
                             Author tempAuthor = new Author();
                             tempAuthor.AuthorId = reader.GetGuid(0);
-                            tempAuthor.AuthorFirstName = reader.GetString(1);
-                            tempAuthor.AuthorLastName = reader.GetString(2);
+                            tempAuthor.FirstName = reader.GetString(1);
+                            tempAuthor.LastName = reader.GetString(2);
                             authors.Add(tempAuthor);
                         }
                     }
@@ -71,8 +76,8 @@ namespace Book.WebAPI.Controllers
                             while (reader.Read())
                             {
                                 tempAuthor.AuthorId = reader.GetGuid(0);
-                                tempAuthor.AuthorFirstName = reader.GetString(1);
-                                tempAuthor.AuthorLastName = reader.GetString(2);
+                                tempAuthor.FirstName = reader.GetString(1);
+                                tempAuthor.LastName = reader.GetString(2);
                             }
                         }
                         catch (Exception ex)
@@ -95,10 +100,10 @@ namespace Book.WebAPI.Controllers
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand
-                    ("INSERT INTO Author (FirstName, LastName) VALUES (@AuthorFirstName, @AuthorLastName)", conn))
+                    ("INSERT INTO Author (FirstName, LastName) VALUES (@FirstName, @LastName)", conn))
                 {
-                    cmd.Parameters.AddWithValue("@AuthorFirstName", newAuthor.AuthorFirstName);
-                    cmd.Parameters.AddWithValue("@AuthorLastName", newAuthor.AuthorLastName);
+                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newAuthor.LastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -114,11 +119,11 @@ namespace Book.WebAPI.Controllers
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand
-                    ("UPDATE Author SET FirstName = @AuthorFirstName, LastName = @AuthorLastName WHERE AuthorId = @AuthorId", conn))
+                    ("UPDATE Author SET FirstName = @FirstName, LastName = @LastName WHERE AuthorId = @AuthorId", conn))
                 {
                     cmd.Parameters.AddWithValue("@AuthorId", newAuthor.AuthorId);
-                    cmd.Parameters.AddWithValue("@AuthorFirstName", newAuthor.AuthorFirstName);
-                    cmd.Parameters.AddWithValue("@AuthorLastName", newAuthor.AuthorLastName);
+                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newAuthor.LastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -136,7 +141,7 @@ namespace Book.WebAPI.Controllers
                 using (SqlCommand cmd = new SqlCommand
                     ("DELETE FROM Author WHERE LastName = @LastName", conn))
                 {
-                    cmd.Parameters.AddWithValue("@LastName", $"{newAuthor.AuthorLastName}");
+                    cmd.Parameters.AddWithValue("@LastName", $"{newAuthor.LastName}");
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
