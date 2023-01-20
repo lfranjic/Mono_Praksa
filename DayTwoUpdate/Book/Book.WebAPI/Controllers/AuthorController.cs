@@ -17,11 +17,6 @@ namespace Book.WebAPI.Controllers
     {
         public static List<Author> authors = new List<Author>
         {
-            /*
-            new Book(4, "The Lord of the Rings", 750),
-            new Book(5, "Crime and Punishment", 500),
-            new Book(6, "The Hobbit", 240)
-            */
         };
 
         string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
