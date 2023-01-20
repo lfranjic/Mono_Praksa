@@ -13,9 +13,9 @@ using System.Text;
 
 namespace Book.WebAPI.Controllers
 {
-    public class BookController : ApiController
+    public class AuthorController : ApiController
     {
-        public static List<Book> books = new List<Book>
+        public static List<Author> authors = new List<Author>
         {
             /*
             new Book(4, "The Lord of the Rings", 750),
@@ -28,56 +28,56 @@ namespace Book.WebAPI.Controllers
 
         [HttpGet]
         // GET: api/Values
-        public HttpResponseMessage AllBooks()
+        public HttpResponseMessage AllAuthors()
         {
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                List<Book> books = new List<Book>();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Book", conn))
+                List<Author> authors = new List<Author>();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Author", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.Text;
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
+                    if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            Book tempBook = new Book();
-                            tempBook.Id = reader.GetGuid(0);
-                            tempBook.Title = reader.GetString(1);
-                            tempBook.Pages = reader.GetInt32(2);
-                            books.Add(tempBook);
+                            Author tempAuthor = new Author();
+                            tempAuthor.AuthorId = reader.GetGuid(0);
+                            tempAuthor.AuthorFirstName = reader.GetString(1);
+                            tempAuthor.AuthorLastName = reader.GetString(2);
+                            authors.Add(tempAuthor);
                         }
                     }
                     conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, books);
+                    return Request.CreateResponse(HttpStatusCode.OK, authors);
                 }
             }
         }
 
         [HttpGet]
         // GET: api/Values/5
-        public HttpResponseMessage FindBookByTitle([FromUri] string title)
+        public HttpResponseMessage FindAuthorByLastName([FromUri] string lastName)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand
-                    ("SELECT * FROM Book WHERE Title=@Title", conn))
+                    ("SELECT * FROM Author WHERE LastName=@LastName", conn))
                 {
-                    Book tempBook = new Book();
-                    cmd.Parameters.AddWithValue("@Title", title);
+                    Author tempAuthor = new Author();
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
+                    if (reader.HasRows)
                     {
                         try
                         {
                             while (reader.Read())
                             {
-                                tempBook.Id = reader.GetGuid(0);
-                                tempBook.Title = reader.GetString(1);
-                                tempBook.Pages = reader.GetInt32(2);
+                                tempAuthor.AuthorId = reader.GetGuid(0);
+                                tempAuthor.AuthorFirstName = reader.GetString(1);
+                                tempAuthor.AuthorLastName = reader.GetString(2);
                             }
                         }
                         catch (Exception ex)
@@ -85,63 +85,63 @@ namespace Book.WebAPI.Controllers
 
                             throw ex;
                         }
-                       
+
                     }
                     conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, tempBook);
+                    return Request.CreateResponse(HttpStatusCode.OK, tempAuthor);
                 }
             }
         }
 
         [HttpPost]
         // POST: api/Values
-        public HttpResponseMessage SaveBook([FromBody] Book newBook)
+        public HttpResponseMessage SaveAuthor([FromBody] Author newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                using(SqlCommand cmd = new SqlCommand
-                    ("INSERT INTO Book (Title, Pages) VALUES (@Title, @Pages)", conn))
+                using (SqlCommand cmd = new SqlCommand
+                    ("INSERT INTO Book (FirstName, LastName) VALUES (@FirstName, @LastName)", conn))
                 {
-                    cmd.Parameters.AddWithValue("@Title", newBook.Title);
-                    cmd.Parameters.AddWithValue("@Pages", newBook.Pages);
+                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.AuthorFirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newAuthor.AuthorLastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, newBook);
+                    return Request.CreateResponse(HttpStatusCode.OK, newAuthor);
                 }
             }
         }
 
         [HttpPut]
-        // PUT: api/Book/ChangePages
-        public HttpResponseMessage ChangePages([FromBody] Book newBook)
+        // PUT: api/Book/ChangeAuthor
+        public HttpResponseMessage ChangeAuthor([FromBody] Author newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                using(SqlCommand cmd = new SqlCommand
-                    ("UPDATE Book SET Title = @Title, Pages = @Pages WHERE BookId = @BookId", conn))
+                using (SqlCommand cmd = new SqlCommand
+                    ("UPDATE Author SET FirstName = @FirstName, LastName = @LastName WHERE AuthorId = @AuthorId", conn))
                 {
-                    cmd.Parameters.AddWithValue("@BookId", newBook.Id);
-                    cmd.Parameters.AddWithValue("@Title", newBook.Title);
-                    cmd.Parameters.AddWithValue("@Pages", newBook.Pages);
+                    cmd.Parameters.AddWithValue("@AuthorId", newAuthor.AuthorId);
+                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.AuthorFirstName);
+                    cmd.Parameters.AddWithValue("@LastName", newAuthor.AuthorLastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, newBook);
+                    return Request.CreateResponse(HttpStatusCode.OK, newAuthor);
                 }
             }
         }
 
         [HttpDelete]
         // DELETE: api/Values/5
-        public HttpResponseMessage RemoveBook([FromUri] Book newBook)
+        public HttpResponseMessage RemoveAuthor([FromUri] Author newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                using(SqlCommand cmd = new SqlCommand
-                    ("DELETE FROM Book WHERE Title = @Title", conn))
+                using (SqlCommand cmd = new SqlCommand
+                    ("DELETE FROM Author WHERE LastName = @LastName", conn))
                 {
-                    cmd.Parameters.AddWithValue("@Title", $"{newBook.Title}");
+                    cmd.Parameters.AddWithValue("@LastName", $"{newAuthor.AuthorLastName}");
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
