@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace Book.WebAPI.Controllers
         string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
 
         [HttpGet]
-        // GET: api/Values
+        // GET: api/Author
         public HttpResponseMessage AllAuthors()
         {
 
@@ -57,7 +57,7 @@ namespace Book.WebAPI.Controllers
         }
 
         [HttpGet]
-        // GET: api/Values/5
+        // GET: api/Author/5
         public HttpResponseMessage FindAuthorByLastName([FromUri] string lastName)
         {
             using (SqlConnection conn = new SqlConnection(connString))
@@ -100,10 +100,10 @@ namespace Book.WebAPI.Controllers
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand
-                    ("INSERT INTO Book (FirstName, LastName) VALUES (@FirstName, @LastName)", conn))
+                    ("INSERT INTO Author (FirstName, LastName) VALUES (@AuthorFirstName, @AuthorLastName)", conn))
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.AuthorFirstName);
-                    cmd.Parameters.AddWithValue("@LastName", newAuthor.AuthorLastName);
+                    cmd.Parameters.AddWithValue("@AuthorFirstName", newAuthor.AuthorFirstName);
+                    cmd.Parameters.AddWithValue("@AuthorLastName", newAuthor.AuthorLastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -119,11 +119,11 @@ namespace Book.WebAPI.Controllers
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand
-                    ("UPDATE Author SET FirstName = @FirstName, LastName = @LastName WHERE AuthorId = @AuthorId", conn))
+                    ("UPDATE Author SET FirstName = @AuthorFirstName, LastName = @AuthorLastName WHERE AuthorId = @AuthorId", conn))
                 {
                     cmd.Parameters.AddWithValue("@AuthorId", newAuthor.AuthorId);
-                    cmd.Parameters.AddWithValue("@FirstName", newAuthor.AuthorFirstName);
-                    cmd.Parameters.AddWithValue("@LastName", newAuthor.AuthorLastName);
+                    cmd.Parameters.AddWithValue("@AuthorFirstName", newAuthor.AuthorFirstName);
+                    cmd.Parameters.AddWithValue("@AuthorLastName", newAuthor.AuthorLastName);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
