@@ -8,8 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Book.WebAPI.Models;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using System.Text;
+
 
 namespace Book.WebAPI.Controllers
 {
@@ -24,130 +23,63 @@ namespace Book.WebAPI.Controllers
             */
         };
 
-        string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
+        SqlConnection connection = new SqlConnection("Data Source = DESKTOP - LHBF9V2\\SQLEXPRESS; Initial Catalog = Praksa; Integrated Security = True");
 
         [HttpGet]
         // GET: api/Values
-        public HttpResponseMessage AllBooks()
+        public HttpResponseMessage FindBookById(int id)
         {
-
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                List<Book> books = new List<Book>();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Book", conn))
-                {
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            Book tempBook = new Book();
-                            tempBook.Id = reader.GetGuid(0);
-                            tempBook.Title = reader.GetString(1);
-                            tempBook.Pages = reader.GetInt32(2);
-                            books.Add(tempBook);
-                        }
-                    }
-                    conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, books);
-                }
-            }
+            var foundBook = books.Find(product => product.Id == id);
+            if (foundBook != null) return Request.CreateResponse(HttpStatusCode.OK, foundBook);
+            else return Request.CreateResponse(HttpStatusCode.NotFound, "No such product!");
         }
 
         [HttpGet]
         // GET: api/Values/5
-        public HttpResponseMessage FindBookByTitle([FromUri] string title)
+        public HttpResponseMessage AllBooks()
         {
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                using (SqlCommand cmd = new SqlCommand
-                    ("SELECT * FROM Book WHERE Title=@Title", conn))
-                {
-                    Book tempBook = new Book();
-                    cmd.Parameters.AddWithValue("@Title", title);
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
-                    {
-                        try
-                        {
-                            while (reader.Read())
-                            {
-                                tempBook.Id = reader.GetGuid(0);
-                                tempBook.Title = reader.GetString(1);
-                                tempBook.Pages = reader.GetInt32(2);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-
-                            throw ex;
-                        }
-                       
-                    }
-                    conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, tempBook);
-                }
-            }
+            if (books != null)
+                return Request.CreateResponse(HttpStatusCode.OK, books);
+            else return Request.CreateResponse(HttpStatusCode.NotFound, "Empty!");
         }
+
 
         [HttpPost]
         // POST: api/Values
         public HttpResponseMessage SaveBook([FromBody] Book newBook)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+
+            if (!books.Exists(product => product.Id == newBook.Id))
             {
-                using(SqlCommand cmd = new SqlCommand
-                    ("INSERT INTO Book (Title, Pages) VALUES (@Title, @Pages)", conn))
-                {
-                    cmd.Parameters.AddWithValue("@Title", newBook.Title);
-                    cmd.Parameters.AddWithValue("@Pages", newBook.Pages);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, newBook);
-                }
+                books.Add(newBook);
+                return Request.CreateResponse(HttpStatusCode.OK, "Added!");
             }
+            else return Request.CreateResponse(HttpStatusCode.BadRequest, "Porduct with the same id exists!");
         }
 
+
         [HttpPut]
-        // PUT: api/Book/ChangePages
-        public HttpResponseMessage ChangePages([FromBody] Book newBook)
+        // PUT: api/Values/5
+        public HttpResponseMessage ChangePages([FromUri] int id, [FromUri] int value)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+            var foundBook = books.Find(books => books.Id == id);
+            foundBook.Pages = value;
+            if (foundBook != null)
             {
-                using(SqlCommand cmd = new SqlCommand
-                    ("UPDATE Book SET Title = @Title, Pages = @Pages WHERE BookId = @BookId", conn))
-                {
-                    cmd.Parameters.AddWithValue("@BookId", newBook.Id);
-                    cmd.Parameters.AddWithValue("@Title", newBook.Title);
-                    cmd.Parameters.AddWithValue("@Pages", newBook.Pages);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, newBook);
-                }
+                if (foundBook.Pages == value) return Request.CreateResponse(HttpStatusCode.OK, "Changed!");
+                else return Request.CreateResponse(HttpStatusCode.NotModified, "Error!");
             }
+            else return Request.CreateResponse(HttpStatusCode.NotFound, "Not found!");
         }
 
         [HttpDelete]
         // DELETE: api/Values/5
-        public HttpResponseMessage RemoveBook([FromUri] Book newBook)
+        public HttpResponseMessage RemoveBook([FromUri] int id)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                using(SqlCommand cmd = new SqlCommand
-                    ("DELETE FROM Book WHERE Title = @Title", conn))
-                {
-                    cmd.Parameters.AddWithValue("@Title", $"{newBook.Title}");
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    return Request.CreateResponse(HttpStatusCode.OK, "Deleted.");
-                }
-            }
+            int numberOfBooks = books.Count;
+            books.Remove(books.Find(books => books.Id == id));
+            if (books.Count == numberOfBooks - 1) return Request.CreateResponse(HttpStatusCode.OK, "Deleted!");
+            else return Request.CreateResponse(HttpStatusCode.NotModified, "Error!"); ;
         }
     }
 }

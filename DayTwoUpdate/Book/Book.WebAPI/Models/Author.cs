@@ -9,7 +9,7 @@ namespace Book.WebAPI.Models
 {
     public class Author
     {
-        public Guid AuthorId { get; set; }
+        public int AuthorId { get; set; }
         public string AuthorFirstName { get; set; }
         public string AuthorLastName { get; set; }
     }

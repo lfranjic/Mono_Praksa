@@ -9,12 +9,12 @@ namespace Book.WebAPI
 {
     public class Book
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public int Pages { get; set; }
         public Book() { }
 
-        public Book(Guid bookId, string title, int pages)
+        public Book(int bookId, string title, int pages)
         {
             Id = bookId;
             Title = title;
