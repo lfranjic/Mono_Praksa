@@ -15,14 +15,7 @@ namespace Book.WebAPI.Controllers
 {
     public class AuthorController : ApiController
     {
-        public static List<Author> authors = new List<Author>
-        {
-            /*
-            new Book(4, "The Lord of the Rings", 750),
-            new Book(5, "Crime and Punishment", 500),
-            new Book(6, "The Hobbit", 240)
-            */
-        };
+        public static List<AuthorRest> authors = new List<AuthorRest>();
 
         string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
 
@@ -33,7 +26,7 @@ namespace Book.WebAPI.Controllers
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                List<Author> authors = new List<Author>();
+                List<AuthorRest> authors = new List<AuthorRest>();
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM Author", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.Text;
@@ -43,7 +36,7 @@ namespace Book.WebAPI.Controllers
                     {
                         while (reader.Read())
                         {
-                            Author tempAuthor = new Author();
+                            AuthorRest tempAuthor = new AuthorRest();
                             tempAuthor.AuthorId = reader.GetGuid(0);
                             tempAuthor.AuthorFirstName = reader.GetString(1);
                             tempAuthor.AuthorLastName = reader.GetString(2);
@@ -65,7 +58,7 @@ namespace Book.WebAPI.Controllers
                 using (SqlCommand cmd = new SqlCommand
                     ("SELECT * FROM Author WHERE LastName=@LastName", conn))
                 {
-                    Author tempAuthor = new Author();
+                    AuthorRest tempAuthor = new AuthorRest();
                     cmd.Parameters.AddWithValue("@LastName", lastName);
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -95,7 +88,7 @@ namespace Book.WebAPI.Controllers
 
         [HttpPost]
         // POST: api/Values
-        public HttpResponseMessage SaveAuthor([FromBody] Author newAuthor)
+        public HttpResponseMessage SaveAuthor([FromBody] AuthorRest newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -114,7 +107,7 @@ namespace Book.WebAPI.Controllers
 
         [HttpPut]
         // PUT: api/Book/ChangeAuthor
-        public HttpResponseMessage ChangeAuthor([FromBody] Author newAuthor)
+        public HttpResponseMessage ChangeAuthor([FromBody] AuthorRest newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -134,7 +127,7 @@ namespace Book.WebAPI.Controllers
 
         [HttpDelete]
         // DELETE: api/Values/5
-        public HttpResponseMessage RemoveAuthor([FromUri] Author newAuthor)
+        public HttpResponseMessage RemoveAuthor([FromUri] AuthorRest newAuthor)
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {

@@ -99,3 +99,15 @@ C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\o
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\obj\Debug\Book.WebAPI.csproj.CopyComplete
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\obj\Debug\Book.WebAPI.dll
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\obj\Debug\Book.WebAPI.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Model.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Model.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Serice.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Service.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Repository.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Repository.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Model.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Model.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Serice.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Service.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Repository.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Repository.Common.pdb

@@ -1,0 +1,11 @@
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Service.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Service.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Model.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Model.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Model.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\bin\Debug\Book.Model.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\obj\Debug\Book.Service.Common.csproj.AssemblyReference.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\obj\Debug\Book.Service.Common.csproj.CoreCompileInputs.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\obj\Debug\Book.Service.Common.csproj.CopyComplete
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\obj\Debug\Book.Service.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Service.Common\obj\Debug\Book.Service.Common.pdb

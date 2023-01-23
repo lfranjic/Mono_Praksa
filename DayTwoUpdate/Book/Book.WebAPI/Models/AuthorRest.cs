@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Book.WebAPI.Models
 {
-    public class Author
+    public class AuthorRest
     {
         public Guid AuthorId { get; set; }
         public string AuthorFirstName { get; set; }

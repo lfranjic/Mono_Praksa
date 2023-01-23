@@ -1,0 +1,17 @@
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Repository.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Repository.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Model.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Repository.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Web.Http.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Model.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Repository.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Web.Http.xml
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\obj\Debug\Book.Repository.csproj.AssemblyReference.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\obj\Debug\Book.Repository.csproj.CoreCompileInputs.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\obj\Debug\Book.Repository.csproj.CopyComplete
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\obj\Debug\Book.Repository.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\obj\Debug\Book.Repository.pdb

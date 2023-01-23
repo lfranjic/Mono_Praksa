@@ -1,0 +1,6 @@
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\bin\Debug\Book.Model.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\bin\Debug\Book.Model.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\obj\Debug\Book.Model.Common.csproj.AssemblyReference.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\obj\Debug\Book.Model.Common.csproj.CoreCompileInputs.cache
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\obj\Debug\Book.Model.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Model.Common\obj\Debug\Book.Model.Common.pdb
