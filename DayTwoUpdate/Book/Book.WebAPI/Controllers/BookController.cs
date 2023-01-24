@@ -11,20 +11,30 @@ using System.Text;
 using Book.Service;
 using Book.Model;
 using Book.Model.Common;
+using Book.Service.Common;
 
 namespace Book.WebAPI.Controllers
 {
     public class BookController : ApiController
     {
-        BookService bookService = new BookService();
+        //BookService bookService = new BookService();
 
+        private IBookService service { get; set; }
+        public BookController(IBookService service)
+        {
+            this.service = service;
+        }
+        public BookController()
+        {
+
+        }
         //string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
 
         [HttpGet]
         // GET: api/Values
         public async Task<HttpResponseMessage> AllBooks()
         {
-            List<Model.Book> books = await bookService.GetAllBooks();
+            List<Model.Book> books = await service.GetAllBooks();
             if (books != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, books);
@@ -36,7 +46,7 @@ namespace Book.WebAPI.Controllers
         // GET: api/Values/5
         public async Task<HttpResponseMessage> GetBookById(Guid id)
         {
-            Model.Book foundBook = await bookService.GetBookById(id);
+            Model.Book foundBook = await service.GetBookById(id);
             if (foundBook != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, foundBook);
@@ -51,7 +61,7 @@ namespace Book.WebAPI.Controllers
             newBook.Id = Guid.NewGuid();
             if (newBook != null)
             {
-                await bookService.PostBook(newBook);
+                await service.PostBook(newBook);
                 return Request.CreateResponse(HttpStatusCode.OK, newBook);
             }
             return Request.CreateResponse(HttpStatusCode.NotFound, "Error!");
@@ -63,7 +73,7 @@ namespace Book.WebAPI.Controllers
         {
             if (newBook != null)
             {
-                await bookService.PutBook(newBook);
+                await service.PutBook(newBook);
                 return Request.CreateResponse(HttpStatusCode.NotFound, newBook);
             }
             return Request.CreateResponse(HttpStatusCode.OK, newBook);
@@ -77,7 +87,7 @@ namespace Book.WebAPI.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-            await bookService.DeleteBook(newBook);
+            await service.DeleteBook(newBook);
             return Request.CreateResponse(HttpStatusCode.OK, newBook);
         }
     }

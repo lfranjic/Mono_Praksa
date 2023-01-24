@@ -7,14 +7,22 @@ using System.Web.Http;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Data.SqlClient;
+using Autofac;
+using Book.Service.Common;
+using Book.Service;
+using Book.Repository;
+using Book.Repository.Common;
+using Autofac.Integration.WebApi;
+using System.Reflection;
+using Book.WebAPI.Configuration;
 
 namespace Book.WebAPI
 {
     public class Global : System.Web.HttpApplication
     {
-
-        protected void Application_Start(object sender, EventArgs e)
+        protected void Application_Start()
         {
+            AutofacConfig.SetupBuilder();
             GlobalConfiguration.Configure(BookWebAPIConfig.Register);
         }
 
