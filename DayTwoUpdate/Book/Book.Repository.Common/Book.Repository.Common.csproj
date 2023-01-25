@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Book.Common\Book.Common.csproj">
+      <Project>{79A8489A-8191-4686-B259-EFDE86628EF9}</Project>
+      <Name>Book.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Book.Model\Book.Model.csproj">
       <Project>{2f2e7362-c3c2-49c2-a401-82a8b4b99f6c}</Project>
       <Name>Book.Model</Name>

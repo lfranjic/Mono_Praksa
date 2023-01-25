@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Data.SqlClient;
+using Book.Common;
 
 namespace Book.Repository
 {
@@ -20,13 +21,38 @@ namespace Book.Repository
         public static string connString = "Data Source=DESKTOP-LHBF9V2\\SQLEXPRESS;Initial Catalog=Praksa;Integrated Security=True";
 
         // GET: api/Values
-        public async Task<List<Model.Book>> GetAllBooks()
+        public async Task<List<Model.Book>> GetAllBooks(Paging paging, Sorting sorting, Filtering filtering)
         {
+            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM Book");
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                List<Model.Book> books = new List<Model.Book>();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Book", conn))
+                if (filtering.PageMin != null && filtering.PageMax != null)
                 {
+                    queryBuilder.AppendLine(" WHERE Pages > " + filtering.PageMin + " AND Pages < " + filtering.PageMax);
+                }
+                if (filtering.PageMin == null && filtering.PageMax != null)
+                {
+                    queryBuilder.AppendLine(" WHERE Pages < " + filtering.PageMax);
+                }
+                if (filtering.PageMin != null && filtering.PageMax == null)
+                {
+                    queryBuilder.AppendLine(" WHERE Pages > " + filtering.PageMin);
+                }
+                if (filtering.BookTitle != null && (filtering.PageMax != null || filtering.PageMin != null))
+                {
+                    queryBuilder.AppendLine(" AND Title LIKE '%" + filtering.BookTitle + "%'");
+                }
+                if (filtering.BookTitle != null && (filtering.PageMax == null && filtering.PageMin == null))
+                {
+                    queryBuilder.AppendLine(" WHERE Title LIKE '%" + filtering.BookTitle + "%'");
+                }
+                queryBuilder.AppendLine(" ORDER BY " + sorting.SortBy + " " + sorting.SortOrder);
+                queryBuilder.AppendLine(" OFFSET " + (paging.PageNumber - 1) * paging.PageSize + " ROWS");
+                queryBuilder.AppendLine(" FETCH NEXT " + paging.PageSize + " ROWS ONLY");
+                SqlCommand cmd = new SqlCommand(queryBuilder.ToString(), conn);
+                using (cmd)
+                {
+                    List <Model.Book> books = new List<Model.Book>();
                     cmd.CommandType = CommandType.Text;
                     await conn.OpenAsync();
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())

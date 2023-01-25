@@ -125,3 +125,5 @@ C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\b
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Repository.dll.config
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Serice.dll.config
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.WebAPI\bin\Book.Common.pdb

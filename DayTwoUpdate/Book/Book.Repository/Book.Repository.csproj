@@ -85,6 +85,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Book.Common\Book.Common.csproj">
+      <Project>{79A8489A-8191-4686-B259-EFDE86628EF9}</Project>
+      <Name>Book.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Book.Model\Book.Model.csproj">
       <Project>{2F2E7362-C3C2-49C2-A401-82A8B4B99F6C}</Project>
       <Name>Book.Model</Name>

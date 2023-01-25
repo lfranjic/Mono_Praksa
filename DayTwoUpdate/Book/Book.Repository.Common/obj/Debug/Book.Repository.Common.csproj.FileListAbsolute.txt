@@ -7,3 +7,5 @@ C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Reposito
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository.Common\obj\Debug\Book.Repository.Common.csproj.CopyComplete
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository.Common\obj\Debug\Book.Repository.Common.dll
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository.Common\obj\Debug\Book.Repository.Common.pdb
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository.Common\bin\Debug\Book.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository.Common\bin\Debug\Book.Common.pdb

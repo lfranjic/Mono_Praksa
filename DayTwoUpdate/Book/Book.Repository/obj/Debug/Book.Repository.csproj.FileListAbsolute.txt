@@ -32,3 +32,5 @@ C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Reposito
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Common.dll
+C:\Users\38591\Desktop\Ostalo\Praksa\Mono_Praksa\DayTwoUpdate\Book\Book.Repository\bin\Debug\Book.Common.pdb

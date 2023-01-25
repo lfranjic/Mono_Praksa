@@ -12,6 +12,7 @@ using Book.Service;
 using Book.Model;
 using Book.Model.Common;
 using Book.Service.Common;
+using Book.Common;
 
 namespace Book.WebAPI.Controllers
 {
@@ -32,9 +33,12 @@ namespace Book.WebAPI.Controllers
 
         [HttpGet]
         // GET: api/Values
-        public async Task<HttpResponseMessage> AllBooks()
+        public async Task<HttpResponseMessage> AllBooks(int pageNumber = 1, int pageSize = 2, string sortBy = "Title", string sortOrder = "asc", int? pageMin = null, int? pageMax = null, string bookTitle=null)
         {
-            List<Model.Book> books = await service.GetAllBooks();
+            Paging paging = new Paging(pageSize, pageNumber);
+            Sorting sorting = new Sorting(sortBy, sortOrder);
+            Filtering filtering = new Filtering(pageMin, pageMax, bookTitle);
+            List<Model.Book> books = await service.GetAllBooks(paging, sorting, filtering);
             if (books != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, books);

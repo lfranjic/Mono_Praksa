@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Book.Common;
 using Book.Model;
 using Book.Repository;
 using Book.Repository.Common;
@@ -21,9 +22,9 @@ namespace Book.Service
 
         }
 
-        public async Task<List<Model.Book>> GetAllBooks()
+        public async Task<List<Model.Book>> GetAllBooks(Paging paging, Sorting sorting, Filtering filtering)
         {
-            List<Model.Book> models = await repository.GetAllBooks();
+            List<Model.Book> models = await repository.GetAllBooks(paging, sorting, filtering);
             return models;
         }
 

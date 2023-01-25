@@ -175,6 +175,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Book.Common\Book.Common.csproj">
+      <Project>{79A8489A-8191-4686-B259-EFDE86628EF9}</Project>
+      <Name>Book.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Book.Model.Common\Book.Model.Common.csproj">
       <Project>{fc02967a-e1f0-4329-aa5f-ea7b0a80f0e0}</Project>
       <Name>Book.Model.Common</Name>
