@@ -1,0 +1,40 @@
+  table, tr{
+    text-align: center;
+    border: solid 1.5px #2a2a2a;
+    margin: 10px;
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+  }
+
+  form{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .submitButton{
+    border-radius: 2px;
+    background-color: #2a2a2a;
+    color: beige;
+    border: solid 2px white;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  .submitButton:hover{
+    background-color: white;
+    color: #2a2a2a;
+    border: solid 2px #2a2a2a;
+    cursor: pointer;
+  }
+
+  .genderLabel{
+    display: block;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2rem, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+  }
